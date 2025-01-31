@@ -31,14 +31,14 @@
 ### **1️⃣ Setting Up the Central Hub**
 ```sh
 # Clone the repository
-git clone https://github.com/AloysJehwin/SmartMesh.git
+git clone https://github.com/your-username/SmartMesh.git
 cd SmartMesh
+```
 
 ### **4️⃣ Connecting the Mobile App**
 - Install the **SmartMesh Mobile App** (React Native-based).
 - Enable BLE on your phone.
 - Connect to the hub and start controlling your devices!
-
 
 ---
 🚀 **SmartMesh - The Future of Seamless Smart Home Automation!**
