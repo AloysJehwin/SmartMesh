@@ -31,7 +31,7 @@
 ### **1️⃣ Setting Up the Central Hub**
 ```sh
 # Clone the repository
-git clone https://github.com/your-username/SmartMesh.git
+git clone https://github.com/AloysJehwin/SmartMesh.git
 cd SmartMesh
 ```
 
