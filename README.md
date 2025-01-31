@@ -34,21 +34,6 @@
 git clone https://github.com/AloysJehwin/SmartMesh.git
 cd SmartMesh
 
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### **2️⃣ Running the Zigbee Network**
-Ensure Zigbee2MQTT or a similar service is running to manage Zigbee communications.
-```sh
-sudo systemctl start zigbee2mqtt
-```
-
-### **3️⃣ Running the Server**
-```sh
-python main.py
-```
-
 ### **4️⃣ Connecting the Mobile App**
 - Install the **SmartMesh Mobile App** (React Native-based).
 - Enable BLE on your phone.
