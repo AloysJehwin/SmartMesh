@@ -5,7 +5,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== 'POST') return res.status(405).end();
 
   const client = await clientPromise;
-  const db = client.db('your_db_name');
+  const db = client.db('power_monitoring');
   const collection = db.collection('readings');
 
   const { appliance1, appliance2, appliance3, timestamp } = req.body;
