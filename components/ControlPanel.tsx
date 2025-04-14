@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { Lightbulb } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000';
-
 const bulbs = [
   { id: '1', name: 'Bulb 1' },
   { id: '2', name: 'Bulb 2' },
@@ -16,7 +14,7 @@ export default function ControlPanel() {
 
   const handleControl = async (bulbId: string, action: 'on' | 'off') => {
     try {
-      const res = await fetch(`${API_BASE}/light/${bulbId}/${action}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_HTTP_URL}/light/${bulbId}/${action}`, {
         method: 'POST',
       });
 

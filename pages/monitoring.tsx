@@ -20,7 +20,12 @@ export default function MonitoringPage() {
 
   const fetchSensorData = async () => {
     try {
-      const res = await fetch("http://localhost:5000/sensor-data");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_HTTP_URL}/sensor-data`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',  // 👈 Add this line
+        },
+      });
+      
       if (!res.ok) throw new Error("Failed to fetch sensor data from Flask");
       const data: SensorData = await res.json();
 
