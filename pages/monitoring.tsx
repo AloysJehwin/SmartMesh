@@ -6,6 +6,8 @@ import "ag-charts-enterprise";
 
 const VOLTAGE = 230;
 
+type ApplianceKey = "appliance1" | "appliance2" | "appliance3";
+
 interface SensorData {
   appliance1: number;
   appliance2: number;
@@ -20,7 +22,7 @@ interface SensorData {
 
 export default function MonitoringPage() {
   const [readings, setReadings] = useState<SensorData | null>(null);
-  const [energy, setEnergy] = useState<{ [key: string]: number }>({
+  const [energy, setEnergy] = useState<Record<ApplianceKey, number>>({
     appliance1: 0,
     appliance2: 0,
     appliance3: 0,
@@ -46,9 +48,13 @@ export default function MonitoringPage() {
   };
 
   const calculateEnergy = (reading: SensorData) => {
-    const appliances = ["appliance1", "appliance2", "appliance3"] as const;
+    const appliances: ApplianceKey[] = ["appliance1", "appliance2", "appliance3"];
     let total = 0;
-    const newEnergy: any = {};
+    const newEnergy: Record<ApplianceKey, number> = {
+      appliance1: 0,
+      appliance2: 0,
+      appliance3: 0,
+    };
 
     appliances.forEach((key) => {
       const isOn = reading.status[key];
@@ -101,10 +107,10 @@ export default function MonitoringPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         {readings &&
-          ["appliance1", "appliance2", "appliance3"].map((key, i) => {
+          (["appliance1", "appliance2", "appliance3"] as ApplianceKey[]).map((key, i) => {
             const label = `Phase Line ${i + 1}`;
-            const status = readings.status[key as keyof typeof readings.status];
-            const value = status ? readings[key as keyof SensorData] : 0;
+            const status = readings.status[key];
+            const value = status ? readings[key] : 0;
             const power = getCurrentPower(value);
 
             return (
@@ -123,8 +129,7 @@ export default function MonitoringPage() {
                       min: 0,
                       max: 1,
                     },
-                    needle: { pin: true },
-                    range: getGaugeColor(status),
+                    needle: { enabled: true },
                   }}
                 />
                 <div className="text-md mt-3">
