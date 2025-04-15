@@ -1,0 +1,36 @@
+{
+  "name": "waste-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-hookz/web": "^25.1.1",
+    "ag-charts-enterprise": "^11.2.3",
+    "ag-charts-react": "^11.2.3",
+    "axios": "^1.8.4",
+    "dotenv": "^16.5.0",
+    "framer-motion": "^12.6.5",
+    "lucide-react": "^0.487.0",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.2",
+    "next": "15.3.0",
+    "react": "^19.0.0",
+    "react-circular-gauge": "^1.1.1",
+    "react-dom": "^19.0.0",
+    "uuid": "^11.1.0",
+    "waste-dashboard": "file:"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
