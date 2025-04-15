@@ -20,7 +20,14 @@ export default function ControlPanel() {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_HTTP_URL}/bulb-status`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_HTTP_URL}/bulb-status`, {
+          method: 'GET',
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+            'Content-Type': 'application/json',
+          },
+        });
+        
         if (!res.ok) throw new Error('Failed to fetch phase line status');
         const data = await res.json();
 
@@ -39,7 +46,12 @@ export default function ControlPanel() {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_HTTP_URL}/light/${phaseLineId}/${action}`, {
         method: 'POST',
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'Content-Type': 'application/json',
+        },
       });
+      
       if (!res.ok) throw new Error('Failed to control phase line');
       const data = await res.json();
       
